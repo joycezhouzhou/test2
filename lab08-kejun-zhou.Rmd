@@ -1,0 +1,221 @@
+---
+title: "Lab08-kejun-zhou"
+author: "kejun zhou"
+date: "3/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+n=10
+summation1=c()
+summation2=c()
+for (i in 0:n){
+  summation1[i+1]=(1/2)^(i)
+  summation2[i+1]=(1/9)^(i)
+  sum1=sum(summation1)
+  sum2=sum(summation2)
+}
+
+
+#yes it will converage as n increases
+
+a1=3
+d=3
+an=c()
+for (i in 1:n){
+  an[i]=a1+(i-1)*d
+}
+#no, it won't converage as n increase
+
+r=2
+a1=3
+an=c()
+for (i in 1:n){
+  an[i]=a1*(r^(n-1))
+  sum1=sum(an)
+}
+
+#it depends on r. if r<1, then it will converage, if r>1, it won't
+
+sinx=c()
+x=2
+for (i in 1:n){
+  sinx[i]=(-1)^(i+1)*x^(2*i-1)/factorial(2*i-1)
+  sum_sin=sum(sinx)
+}
+
+x=1:100
+sum1=0
+for (i in 1:length(x)){
+  sum1=x[i]+sum1
+}
+ave=sum1/length(x)
+ave
+
+x=1:100
+sum1=0
+i=1
+n=length(x)
+while (i<n+1){
+  sum1=x[i]+sum1
+  i=i+1
+}
+ave=sum1/length(x)
+ave
+
+x=1:100
+sum1=0
+i=1
+repeat{
+  if(i>length(x)){
+    break
+  }
+  sum1=x[i]+sum1
+  i=i+1
+}
+ave1=sum1/length(x)
+ave1
+
+x=1:100
+sq=0
+n=length(x)
+for (i in 1:n){
+  sq=(x[i]-mean(x))^2+sq
+}
+sd=sqrt(sq/(n-1))
+sd
+
+x=1:100
+sq=0
+i=1
+n=length(x)
+while (i<n+1){
+  sq=(x[i]-mean(x))^2+sq
+  i=i+1
+}
+sd=sqrt(sq/(n-1))
+sd
+
+x=1:100
+sq=0
+i=1
+repeat{
+  if(i>length(x)){
+    break
+  }
+  sq=(x[i]-mean(x))^2+sq
+  i=i+1
+}
+sd=sqrt(sq/(n-1))
+sd
+
+
+x=1:50
+n=length(x)
+x_t=1
+for (i in 1:n){
+  x_t=(x_t)*x[i]
+}
+x_bar=x_t^(1/n)
+x_bar
+
+x=1:50
+x_t=1
+i=1
+n=length(x)
+while (i<n+1){
+  x_t=(x_t)*x[i]
+  i=i+1
+}
+x_bar=x_t^(1/n)
+x_bar
+
+
+x=1:50
+x_t=1
+i=1
+repeat{
+  if(i>length(x)){
+    break
+  }
+  x_t=(x_t)*x[i]
+  i=i+1
+}
+x_bar=x_t^(1/n)
+x_bar
+
+# random distance matrix
+num_letters <- length(LETTERS)
+set.seed(123)
+values <- sample.int(num_letters) 
+distances <- values %*% t(values)
+diag(distances) <- 0
+dimnames(distances) <- list(LETTERS, LETTERS)
+distances[1:5, 1:5]
+distances["B","C"]
+
+vec <- c('E', 'D', 'A')
+
+i=1
+dis=0
+get_dist<-function(distance,ltrs){
+  for (j in length(ltrs)){
+    if (ltrs[j]== toupper(ltrs[j])){
+    while(i<=length(ltrs)-1){
+      dis=distance[ltrs[i],ltrs[i+1]]+dis
+      i=i+1
+    }
+  }
+  else{
+    stop("Unrecognized character")
+  }
+  }
+  return (dis)
+  }
+
+vec <- c('E', 'D', 'A')
+get_dist(distances, vec)
+
+cal <- c('C', 'A', 'L')
+get_dist(distances, cal)
+
+stats <- c('S', 'T', 'A', 'T', 'S')
+get_dist(distances, stats)
+
+oski <- c('O', 'S', 'K', 'I')
+get_dist(distances, oski)
+
+zzz <- rep('Z', 3)
+get_dist(distances, zzz)
+
+lets <- LETTERS
+get_dist(distances, lets)
+
+first<-c("K","E","J","U","N")
+get_dist(distances, first)
+
+last<-c("Z","H","O","U")
+get_dist(distances, last)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
