@@ -1,0 +1,30 @@
+---
+title: "Lab06-kejunzhou"
+author: "kejun zhou"
+date: "3/7/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r eval=FALSE}
+cd Desktop
+mkdir demo-repo
+cd demo-repo
+git init
+xcode-select --install
+echo "# Demo Repo" >> README.md
+git status
+git add README.md
+git status
+git commit -m "first commit"
+git remote add origin https://github.com/username/demo-repo.git
+git remote -v
+git status
+git push origin master
+```
+
